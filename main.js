@@ -15,3 +15,28 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight)
 
 document.body.appendChild( renderer.domElement )
+
+//creates a cube / contains faces and vertices
+const geometry = new THREE.BoxGeometry(1, 1, 1)
+
+//creates the material to color the mesh - hex format
+const material = new THREE.MeshBasicMaterial({color: 0x00ff00})
+
+//creates the mesh
+const cube = new THREE.Mesh(geometry,material)
+
+//adds the cube to the scene
+scene.add(cube)
+
+//moves the camera away from the cube
+camera.position.z = 5
+
+
+function animate(){
+    requestAnimationFrame( animate )
+    renderer.render(scene, camera)
+}
+
+animate()
+
+console.log('hi')
